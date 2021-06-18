@@ -57,7 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Src\PageObject\RoadDetailsPage.cs" />
+    <Compile Include="Src\PageObject\TripDetailsPage.cs" />
     <Compile Include="Src\PageObject\GoogleMapsPage.cs" />
     <Compile Include="Src\PageObject\ConsentPage.cs" />
     <Compile Include="Test\GoogleMapsTest.cs" />

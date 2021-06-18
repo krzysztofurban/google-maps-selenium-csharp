@@ -8,7 +8,7 @@ using SeleniumGoogleMapsExample.Test.model;
 
 namespace SeleniumGoogleMapsExample.PageObject
 {
-    public class RoadDetailsPage
+    public class TripDetailsPage
     {
         private readonly IWebDriver _driver;
         private readonly WebDriverWait _wait;
@@ -22,7 +22,7 @@ namespace SeleniumGoogleMapsExample.PageObject
         [CacheLookup]
         private IWebElement _tripDetailsSummaryTitle;
 
-        public RoadDetailsPage(IWebDriver driver, int timeout)
+        public TripDetailsPage(IWebDriver driver, int timeout)
         {
             this._driver = driver;
             this._wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
@@ -30,13 +30,14 @@ namespace SeleniumGoogleMapsExample.PageObject
             PageFactory.InitElements(driver, this);
         }
 
-        private TripParameters GetRoadParameters()
+        public TripParameters GetTripParameters()
         {
-            String summaryTitle = _tripDetailsSummaryTitle.Text;
-            return TripParameters.FromDetailsSummaryTitle(summaryTitle);
+            IWebElement summaryTitle =
+                _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(_tripDetailsSummaryTitle));
+            return TripParameters.FromDetailsSummaryTitle(summaryTitle.Text);
         }
 
-        private RoadDetailsPage ShowFirstTripDetailsSection()
+        public TripDetailsPage ShowFirstTripDetailsSection()
         {
             IWebElement detailButton =
                 _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(_detailsButton));

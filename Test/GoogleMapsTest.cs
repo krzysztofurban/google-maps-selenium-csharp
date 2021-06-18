@@ -34,8 +34,15 @@ namespace SeleniumGoogleMapsExample.Test
             GoogleMapsPage googleMapsPage = new GoogleMapsPage(this.driver, TIMEOUT);
             googleMapsPage.GoToPage();
             googleMapsPage.FillAndSubmitDirectionWidgetForm(startAddress, destinationAddress, transportType);
-            Thread.Sleep(5000);
-            Assert.True(true);
+            
+            TripDetailsPage tripDetailsPage = new TripDetailsPage(driver, TIMEOUT);
+
+            TripParameters tripParameters = tripDetailsPage
+                .ShowFirstTripDetailsSection()
+                .GetTripParameters();
+
+            Assert.Less(tripParameters.DistanceInKm, kmLimit);
+            Assert.Less(tripParameters.Minutes, timeLimitMin);
         }
 
         [TearDown]
