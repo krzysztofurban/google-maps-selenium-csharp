@@ -62,7 +62,7 @@
     <Compile Include="Src\PageObject\ConsentPage.cs" />
     <Compile Include="Test\GoogleMapsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Test\model\TransportType.cs" />
+    <Compile Include="Src\Model\TransportType.cs" />
     <Compile Include="Test\UtilsTests.cs" />
   </ItemGroup>
   <ItemGroup>
