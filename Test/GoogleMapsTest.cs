@@ -1,14 +1,11 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using SeleniumGoogleMapsExample.PageObject;
 using SeleniumGoogleMapsExample.Test.model;
 
-namespace SeleniumGoogleMapsExample
+namespace SeleniumGoogleMapsExample.Test
 {
     public class GoogleMapsTest
     {

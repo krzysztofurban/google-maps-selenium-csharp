@@ -21,6 +21,7 @@ namespace SeleniumGoogleMapsExample.Test
             Assert.AreEqual(expected.DistanceInKm, actual.DistanceInKm);
         }
 
+        [Test]
         public void FromDetailsSummaryTitle_ValidTime()
         {
             TripParameters expected = new TripParameters(26, 2.1);

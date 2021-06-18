@@ -33,13 +33,15 @@ namespace SeleniumGoogleMapsExample.PageObject
         private TripParameters GetRoadParameters()
         {
             String summaryTitle = _tripDetailsSummaryTitle.Text;
+            return TripParameters.FromDetailsSummaryTitle(summaryTitle);
         }
 
-        private RoadDetailsPage GetFastestRoadDetails()
+        private RoadDetailsPage ShowFirstTripDetailsSection()
         {
             IWebElement detailButton =
                 _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(_detailsButton));
             detailButton.Click();
+            return this;
         }
     }
 
@@ -55,23 +57,39 @@ namespace SeleniumGoogleMapsExample.PageObject
             this.DistanceInKm = distanceInKm;
         }
         
-        //26 min (2,1 km)
+        
         public static TripParameters FromDetailsSummaryTitle(string title)
         {
+            int minutes = TripParametersUtils.GetMinutesFromTitle(title);
+            double distance = TripParametersUtils.GetDistanceFromTitle(title);
+            return new TripParameters(minutes, distance);
+        }
+    }
+
+    //Naive implementation, works only for "26 min (2,1 km)" #noTime
+    public class TripParametersUtils
+    {
+        internal static double GetDistanceFromTitle(string title)
+        {
+            Regex rx = new Regex(@"[0-9]{1,}", RegexOptions.Compiled);
+            MatchCollection matches = rx.Matches(title);
             
+            string km = matches[1].Value;
+            string meters = matches[2].Value;
+            string distanceString = $"{km},{meters}";
+
+            Console.WriteLine(distanceString);
+            return Double.Parse(distanceString);
         }
 
-        //26 min (2,1 km)
-        int GetDistanceFromTitle(string title)
+        internal static int GetMinutesFromTitle(string title)
         {
-            Regex rx = new Regex(@"",
-                RegexOptions.Compiled | RegexOptions.IgnoreCase);
-
-            // Define a test string.
-            string text = "The the quick brown fox  fox jumps over the lazy dog dog.";
-
-            // Find matches.
-            MatchCollection matches = rx.Matches(text);
+            Regex rx = new Regex(@"^[0-9]{1,}", RegexOptions.Compiled );
+            MatchCollection matches = rx.Matches(title);
+            string value = matches[0].Value;
+            
+            Console.WriteLine(value);
+            return Int32.Parse(value);
         }
     }
 }
