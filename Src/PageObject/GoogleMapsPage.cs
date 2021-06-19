@@ -1,9 +1,8 @@
-﻿using System;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 using SeleniumGoogleMapsExample.Test.model;
+using System;
 
 namespace SeleniumGoogleMapsExample.PageObject
 {
@@ -44,7 +43,7 @@ namespace SeleniumGoogleMapsExample.PageObject
             LoadComplete();
             if (_driver.Url.Contains("consent"))
             {
-                ConsentPage consentPage = new ConsentPage(_driver, _timeout);
+                ConsentPage consentPage = new ConsentPage(_driver);
                 consentPage.Submit();
             }
 
@@ -69,12 +68,14 @@ namespace SeleniumGoogleMapsExample.PageObject
 
         private GoogleMapsPage FillDestinationPointInput(string destinationAddress)
         {
+            _destinationPointInput.Clear();
             _destinationPointInput.SendKeys(destinationAddress);
             return this;
         }
 
         private GoogleMapsPage FillStartingPointInput(string startAddress)
         {
+            _startingPointInput.Clear();
             _startingPointInput.SendKeys(startAddress);
             return this;
         }

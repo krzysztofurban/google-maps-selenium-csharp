@@ -11,7 +11,7 @@ namespace SeleniumGoogleMapsExample.PageObject
         [CacheLookup]
         private IWebElement _agreeButton;
 
-        public ConsentPage(IWebDriver driver, int timeout)
+        public ConsentPage(IWebDriver driver)
         {
             _driver = driver;
             PageFactory.InitElements(_driver, this);

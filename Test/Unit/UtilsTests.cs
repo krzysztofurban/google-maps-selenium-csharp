@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using SeleniumGoogleMapsExample.PageObject;
+using SeleniumGoogleMapsExample.Test.e2e.config;
 
 namespace SeleniumGoogleMapsExample.Test.Unit
 {
@@ -23,6 +24,17 @@ namespace SeleniumGoogleMapsExample.Test.Unit
             TripParameters actual = TripParameters.FromDetailsSummaryTitle(_tripSummaryTitle);
 
             Assert.AreEqual(expected.Minutes, actual.Minutes);
+        }
+
+        [Test]
+        public void ShouldEscapeIllegalCharactersFromPath()
+        {
+            string expectedTestCase = "(plac Defilad 1,Warszawa, Chłodna 51, Warszawa', 3.0, 40, Tra";
+            string invalidTestCaseName = "(\"plac Defilad 1,Warszawa\", \"Chłodna 51, Warszawa', 3.0, 40, Tra";
+            
+            string validTestCaseName = SecurePathUtils.secureWindowsPath(invalidTestCaseName);
+
+            Assert.AreEqual(expectedTestCase, validTestCaseName);
         }
     }
 }
