@@ -25,7 +25,7 @@ namespace SeleniumGoogleMapsExample.Test.E2E
         }
 
         [Test]
-        public void ShouldVisitGoogleMaps_ShouldDisplaySearchBar()
+        public void GoogleMaps_ShouldDisplaySearchBar()
         {
             onGoogleMapsPage.GoToPage();
 
@@ -34,7 +34,7 @@ namespace SeleniumGoogleMapsExample.Test.E2E
 
         [TestCase("plac Defilad 1,Warszawa", "Chłodna 51, Warszawa", 3.0, 40, TransportType.Walking)]
         [TestCase("plac Defilad 1,Warszawa", "Chłodna 51, Warszawa", 3.0, 15, TransportType.Cycling)]
-        public void ShouldAssertDistanceAndTimeBetweenObjectsIsLesserThanGiven(string startAddress, string destinationAddress, double kmLimit, int timeLimitMin, TransportType transportType)
+        public void GoogleMaps_DistanceAndTimeBetweenObjectsIsLesserThanGiven(string startAddress, string destinationAddress, double kmLimit, int timeLimitMin, TransportType transportType)
         {
             onGoogleMapsPage.GoToPage()
                 .FillAndSubmitDirectionWidgetForm(startAddress, destinationAddress, transportType);
