@@ -13,8 +13,8 @@ namespace SeleniumGoogleMapsExample.PageObject
 
         public ConsentPage(IWebDriver driver, int timeout)
         {
-            this._driver = driver;
-            PageFactory.InitElements(driver, this);
+            _driver = driver;
+            PageFactory.InitElements(_driver, this);
         }
 
         public ConsentPage Submit()
