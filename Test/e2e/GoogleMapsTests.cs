@@ -7,7 +7,6 @@ namespace SeleniumGoogleMapsExample.Test.E2E
 {
     [TestFixture(BrowserType.Firefox)]
     [TestFixture(BrowserType.Chrome)]
-    //Extent report doesn't work in good way. Omit random test cases in report
     [Parallelizable(ParallelScope.Fixtures)]
     public class GoogleMapsTests : TestBase
     {
