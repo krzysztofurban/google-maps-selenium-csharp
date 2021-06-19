@@ -7,7 +7,7 @@ namespace SeleniumGoogleMapsExample.PageObject
     {
         private IWebDriver _driver;
 
-        [FindsBy(How = How.CssSelector, Using = "button.VfPpkd-LgbsSe.VfPpkd-LgbsSe-OWXEXe-k8QpJ.VfPpkd-LgbsSe-OWXEXe-dgl2Hf.nCP5yc.AjY5Oe.DuMIQc")]
+        [FindsBy(How = How.CssSelector, Using = "button")]
         [CacheLookup]
         private IWebElement _agreeButton;
 

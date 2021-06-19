@@ -37,7 +37,7 @@ namespace SeleniumGoogleMapsExample.PageObject
             PageFactory.InitElements(driver, this);
         }
 
-        public void GoToPage()
+        public GoogleMapsPage GoToPage()
         {
             _driver.Navigate().GoToUrl(pageUrl);
             this.LoadComplete();
@@ -48,6 +48,7 @@ namespace SeleniumGoogleMapsExample.PageObject
             }
 
             this.LoadComplete();
+            return this;
         }
 
         public GoogleMapsPage FillAndSubmitDirectionWidgetForm(string startAddress, string destinationAddress,
