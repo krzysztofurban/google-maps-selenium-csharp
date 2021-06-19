@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using SeleniumGoogleMapsExample.PageObject;
-using SeleniumGoogleMapsExample.Test.e2e.config;
+using SeleniumGoogleMapsExample.Test.E2E.Config;
 
 namespace SeleniumGoogleMapsExample.Test.Unit
 {

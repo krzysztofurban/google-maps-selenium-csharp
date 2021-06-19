@@ -1,4 +1,4 @@
-﻿namespace SeleniumGoogleMapsExample.Test.e2e.config
+﻿namespace SeleniumGoogleMapsExample.Test.E2E.Config
 {
     public enum BrowserType
     {

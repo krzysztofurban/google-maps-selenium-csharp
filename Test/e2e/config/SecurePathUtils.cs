@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Text.RegularExpressions;
 
-namespace SeleniumGoogleMapsExample.Test.e2e.config
+namespace SeleniumGoogleMapsExample.Test.E2E.Config
 {
     class SecurePathUtils
     {

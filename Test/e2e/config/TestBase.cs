@@ -10,7 +10,7 @@ using System.Drawing;
 using System.IO;
 using System.Threading;
 
-namespace SeleniumGoogleMapsExample.Test.e2e.config
+namespace SeleniumGoogleMapsExample.Test.E2E.Config
 {
     [TestFixture]
     public class TestBase

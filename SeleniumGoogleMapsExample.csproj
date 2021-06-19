@@ -450,12 +450,12 @@
     <Compile Include="Src\PageObject\TripDetailsPage.cs" />
     <Compile Include="Src\PageObject\GoogleMapsPage.cs" />
     <Compile Include="Src\PageObject\ConsentPage.cs" />
-    <Compile Include="Test\e2e\config\BrowserType.cs" />
-    <Compile Include="Test\e2e\config\SecurePathUtils.cs" />
-    <Compile Include="Test\e2e\GoogleMapsTest.cs" />
+    <Compile Include="Test\E2E\Config\BrowserType.cs" />
+    <Compile Include="Test\E2E\Config\SecurePathUtils.cs" />
+    <Compile Include="Test\E2E\GoogleMapsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Src\Model\TransportType.cs" />
-    <Compile Include="Test\e2e\config\TestBase.cs" />
+    <Compile Include="Test\E2E\Config\TestBase.cs" />
     <Compile Include="Test\Unit\UtilsTests.cs" />
   </ItemGroup>
   <ItemGroup>

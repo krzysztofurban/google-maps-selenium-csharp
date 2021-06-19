@@ -1,20 +1,20 @@
 ﻿using NUnit.Framework;
 using SeleniumGoogleMapsExample.PageObject;
-using SeleniumGoogleMapsExample.Test.e2e.config;
+using SeleniumGoogleMapsExample.Test.E2E.Config;
 using SeleniumGoogleMapsExample.Test.model;
 
-namespace SeleniumGoogleMapsExample.Test.e2e
+namespace SeleniumGoogleMapsExample.Test.E2E
 {
     [TestFixture(BrowserType.Firefox)]
     [TestFixture(BrowserType.Chrome)]
     //Extent report doesn't work in good way. Omit random test cases in report
     [Parallelizable(ParallelScope.Fixtures)]
-    public class GoogleMapsTest : TestBase
+    public class GoogleMapsTests : TestBase
     {
         private GoogleMapsPage onGoogleMapsPage;
         private TripDetailsPage onTripDetailsPage;
 
-        public GoogleMapsTest(BrowserType browserType) : base(browserType)
+        public GoogleMapsTests(BrowserType browserType) : base(browserType)
         {
         }
 
