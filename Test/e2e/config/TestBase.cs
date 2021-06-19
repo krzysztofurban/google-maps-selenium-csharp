@@ -19,9 +19,9 @@ namespace SeleniumGoogleMapsExample.Test.E2E.Config
         protected int Timeout = 500;
         protected BrowserType BrowserType;
         
-        private String TC_Name;
+        private string TC_Name;
         
-        //Extend Report
+        //Extent Report
         protected static string path = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
         protected static string actualPath = path.Substring(0, path.LastIndexOf("bin", StringComparison.Ordinal));
         protected static string reportFolderName = $"Reports\\Reports_{DateTime.Now.ToString("yy-MM-ddThh_mm_ss")}";
@@ -32,7 +32,7 @@ namespace SeleniumGoogleMapsExample.Test.E2E.Config
 
         public TestBase(BrowserType browserType)
         {
-            this.BrowserType = browserType;
+            BrowserType = browserType;
         }
 
         private static ExtentReports setupExtentReport()
@@ -71,7 +71,7 @@ namespace SeleniumGoogleMapsExample.Test.E2E.Config
         [SetUp]
         protected void SetUp()
         {
-            String context_name = SecurePathUtils.secureWindowsPath(
+            string context_name = SecurePathUtils.secureWindowsPath(
                 TestContext.CurrentContext.Test.Name + " on " + BrowserType);
 
             extent_test.Value = _extent.CreateTest(context_name);
@@ -84,7 +84,7 @@ namespace SeleniumGoogleMapsExample.Test.E2E.Config
             TestStatus exec_status = TestContext.CurrentContext.Result.Outcome.Status;
             string stacktrace = string.IsNullOrEmpty(TestContext.CurrentContext.Result.StackTrace) ? "" : string.Format("{0}", TestContext.CurrentContext.Result.StackTrace);
             Status logstatus = Status.Pass;
-            String fileName = "Screenshot_" + Guid.NewGuid() + ".png";
+            string fileName = "Screenshot_" + Guid.NewGuid() + ".png";
 
             switch (exec_status)
             {
