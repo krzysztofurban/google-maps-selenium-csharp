@@ -1,24 +1,25 @@
-﻿using System.Threading;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
+﻿using NUnit.Framework;
 using SeleniumGoogleMapsExample.PageObject;
+using SeleniumGoogleMapsExample.Test.e2e.config;
 using SeleniumGoogleMapsExample.Test.model;
 
-namespace SeleniumGoogleMapsExample.Test
+namespace SeleniumGoogleMapsExample.Test.e2e
 {
-    public class GoogleMapsTest
+    [TestFixture(BrowserType.Firefox)]
+    [TestFixture(BrowserType.Chrome)]
+    [Parallelizable(ParallelScope.Fixtures)]
+    public class GoogleMapsTest : TestBase
     {
-        IWebDriver driver;
-        private readonly int TIMEOUT = 500;
         private GoogleMapsPage onGoogleMapsPage;
         private TripDetailsPage onTripDetailsPage;
+
+        public GoogleMapsTest(BrowserType browserType) : base(browserType)
+        {
+        }
 
         [SetUp]
         public void StartBrowser()
         {
-            driver = new ChromeDriver();
             onGoogleMapsPage = new GoogleMapsPage(driver, TIMEOUT);
             onTripDetailsPage = new TripDetailsPage(driver, TIMEOUT);
         }
@@ -44,12 +45,6 @@ namespace SeleniumGoogleMapsExample.Test
 
             Assert.Less(tripParameters.DistanceInKm, kmLimit);
             Assert.Less(tripParameters.Minutes, timeLimitMin);
-        }
-
-        [TearDown]
-        public void CloseBrowser()
-        {
-            driver.Close();
         }
     }
 }

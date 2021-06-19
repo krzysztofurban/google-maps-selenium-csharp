@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SeleniumGoogleMapsExample.Test.model
 {
     public enum TransportType
     {
         Walking,
-        Cycling,
-        Bus,
-        Transit
+        Cycling
     }
 
     class TransportTypeConverter
