@@ -32,7 +32,7 @@ namespace SeleniumGoogleMapsExample.Test.Unit
             string expectedTestCase = "(plac Defilad 1,Warszawa, Chłodna 51, Warszawa', 3.0, 40, Tra";
             string invalidTestCaseName = "(\"plac Defilad 1,Warszawa\", \"Chłodna 51, Warszawa', 3.0, 40, Tra";
             
-            string validTestCaseName = SecurePathUtils.secureWindowsPath(invalidTestCaseName);
+            string validTestCaseName = SecurePathUtils.SecureWindowsOsPathInvalidChars(invalidTestCaseName);
 
             Assert.AreEqual(expectedTestCase, validTestCaseName);
         }

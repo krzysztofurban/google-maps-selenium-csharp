@@ -71,7 +71,7 @@ namespace SeleniumGoogleMapsExample.Test.E2E.Config
         [SetUp]
         protected void SetUp()
         {
-            string context_name = SecurePathUtils.secureWindowsPath(
+            string context_name = SecurePathUtils.SecureWindowsOsPathInvalidChars(
                 TestContext.CurrentContext.Test.Name + " on " + BrowserType);
 
             extent_test.Value = _extent.CreateTest(context_name);
