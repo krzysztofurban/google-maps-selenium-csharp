@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
-using SeleniumGoogleMapsExample.Test.model;
 
 namespace SeleniumGoogleMapsExample.PageObject
 {
@@ -24,9 +22,9 @@ namespace SeleniumGoogleMapsExample.PageObject
 
         public TripDetailsPage(IWebDriver driver, int timeout)
         {
-            this._driver = driver;
-            this._wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
-            this._timeout = timeout;
+            _driver = driver;
+            _timeout = timeout;
+            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timeout));
             PageFactory.InitElements(driver, this);
         }
 
@@ -57,7 +55,6 @@ namespace SeleniumGoogleMapsExample.PageObject
             this.Minutes = minutes;
             this.DistanceInKm = distanceInKm;
         }
-        
         
         public static TripParameters FromDetailsSummaryTitle(string title)
         {

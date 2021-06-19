@@ -12,31 +12,31 @@ namespace SeleniumGoogleMapsExample.Test
     {
         IWebDriver driver;
         private readonly int TIMEOUT = 500;
+        private GoogleMapsPage onGoogleMapsPage;
+        private TripDetailsPage onTripDetailsPage;
 
         [SetUp]
         public void StartBrowser()
         {
             driver = new ChromeDriver();
+            onGoogleMapsPage = new GoogleMapsPage(driver, TIMEOUT);
+            onTripDetailsPage = new TripDetailsPage(driver, TIMEOUT);
         }
 
         [Test]
         public void ShouldVisitGoogleMaps_ShouldDisplaySearchBar()
         {
-            GoogleMapsPage googleMapsPage = new GoogleMapsPage(this.driver, TIMEOUT);
-            googleMapsPage.GoToPage();
+            onGoogleMapsPage.GoToPage();
 
-            Assert.True(googleMapsPage.IsSearchBarVisible());
+            Assert.True(onGoogleMapsPage.IsSearchBarVisible());
         }
 
         [TestCase("plac Defilad 1,Warszawa", "Chłodna 51, Warszawa", 3.0, 40, TransportType.Walking)]
         [TestCase("plac Defilad 1,Warszawa", "Chłodna 51, Warszawa", 3.0, 15, TransportType.Cycling)]
         public void ShouldAssertDistanceAndTimeBetweenObjectsIsLesserThanGiven(string startAddress, string destinationAddress, double kmLimit, int timeLimitMin, TransportType transportType)
         {
-            GoogleMapsPage onGoogleMapsPage = new GoogleMapsPage(this.driver, TIMEOUT);
             onGoogleMapsPage.GoToPage()
                 .FillAndSubmitDirectionWidgetForm(startAddress, destinationAddress, transportType);
-
-            TripDetailsPage onTripDetailsPage = new TripDetailsPage(driver, TIMEOUT);
 
             TripParameters tripParameters = onTripDetailsPage
                 .ShowFirstTripDetailsSection()
